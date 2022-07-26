@@ -1,0 +1,31 @@
+// ---------- IMPOSTAZIONE FRONTEND VUE ---------- \\
+
+1. suddivido gli ambienti anche a livello di file e cartelle:
+
+    - in resources > js creo il file front.js in cui:
+
+        -   // includo la libreria Vue.js
+            window.Vue = require('vue');
+
+        -   // importo il componente principale dell'applicazione 'App.vue'
+            import App from './views/App.vue';
+
+        -   // renderizzo App all'avvio
+            const app = new Vue({
+                el: '#app',
+                render: h => h(App),
+            });
+
+    - in resources > sass creo il file front.scss che conterrà lo stile relativo ai componenti Vue che visualizzeranno tutti gli elementi della parte frontend;
+
+    - in webpack.mix.js aggiungo le direttive per la compilazione dei nuovi file javascript e scss appena creati:
+
+        // creo le direttive per compilare scss e js
+        mix.js('resources/js/app.js', 'public/js')
+            .js('resources/js/front.js', 'public/js')
+            .sass('resources/sass/app.scss', 'public/css')
+            .sass('resources/sass/front.scss', 'public/css');
+
+    - in resources > views > guest > home.blade.php (pagina blade di defalut) linko css e js frontend e creo il div che conterrà l'app di Vue che gestirà la visualizzazione pubblica riservata agli utenti 'ospiti' (non registrati/loggati)
+
+    - in resources > js > views > App.vue inserirò tutti i componenti relativi alla parte pubblica.

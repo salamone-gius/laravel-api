@@ -6,17 +6,17 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>Front Office</title>
 
-        {{-- linko il foglio di stile --}}
+        {{-- linko il foglio di stile relativo alla gestione frontend --}}
         <link rel="stylesheet" href="{{asset('css/front.css')}}">
     </head>
     <body>
 
-        {{-- monto l'app che gestirà la parte frontend --}}
+        {{-- monto l'app che renderizzerà la parte frontend --}}
         <div id="app">
             {{-- Vue.js --}}
         </div>
 
-        {{-- linko il file js --}}
+        {{-- linko il file js relativo alla gestione frontend --}}
         <script src="{{asset('js/front.js')}}"></script>
     </body>
 </html>
