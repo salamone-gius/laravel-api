@@ -34,3 +34,19 @@
     php artisan make:controller Api/NomeTabellaSingolareController
 
 3. in routes > api.php inserisco tutte le rotte che servono ad utilizzare i metodi dei controller per prendere dati dal db ed inviarli al componente attraverso una chiamata axios nel componente stesso. Queste rotte non restituiscono una view (come le pagine blade in web.php), ma devono restituire un json per poter essere 'letti'
+
+4. aggancio il frontoffice alle Api:
+
+    - in resources > js > front.js includo la libreria axios nel progetto (già installato nella node modules nel file bootstrap.js e reso globale in quanto legato all'oggetto 'window', ha già incluso il token @csrf per ogni richiesta):
+        window.axios = require('axios');
+        window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+    - in resources > js > views > App.vue:
+    
+        - inizializzo ad array vuoto l'insieme dei dati che prenderò tramite chiamata axios;
+
+        - all'hook created() imposto la chiamata all'endpoint tramite axios e pusho il risultato nell'array vuoto;
+
+        - stampo in pagina i dati arrivati dal server attraverso Vue;
+
+

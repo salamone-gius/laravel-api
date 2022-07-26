@@ -1,6 +1,10 @@
 // includo la libreria Vue.js
 window.Vue = require('vue');
 
+// importo axios
+window.axios = require('axios');
+window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
 // importo il componente principale della nostra applicazione 'App.vue'
 import App from './views/App.vue';
 
