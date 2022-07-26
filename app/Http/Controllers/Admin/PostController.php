@@ -92,6 +92,9 @@ class PostController extends Controller
         // il metodo isset() restituisce true o false. In questo caso "se esiste" restituisce true, altrimenti false
         $newPost->published = isset($data['published']);
 
+        // associo lo user al post attraverso il suo id
+        $newPost->user_id = Auth::id();
+
         // salvo i dati a db
         $newPost->save();
 
@@ -114,6 +117,13 @@ class PostController extends Controller
     // passo il model e il singolo $post come argomento del metodo show (dependancy injection)
     public function show(Post $post)
     {
+        // SE lo user_id del post è diverso dall'id dell'utente loggato...
+        if ($post->user_id !== Auth::id()) {
+
+            // ...lancio la pagina 403 (errore di permessi)
+            abort(403);
+        }
+
         //restituisco la view 
         return view('admin.posts.show', compact('post'));
     }
@@ -128,6 +138,13 @@ class PostController extends Controller
     // passo il model e il singolo $post come argomento del metodo edit (dependancy injection)
     public function edit(Post $post)
     {
+        // SE lo user_id del post è diverso dall'id dell'utente loggato...
+        if ($post->user_id !== Auth::id()) {
+
+            // ...lancio la pagina 403 (errore di permessi)
+            abort(403);
+        }
+
         // importo tutte le categorie
         $categories = Category::all();
 
@@ -153,6 +170,13 @@ class PostController extends Controller
     // oltre a passare (di default) i dati che arrivano dal form ($request) passo il model e il singolo $post come argomento del metodo update (dependancy injection)
     public function update(Request $request, Post $post)
     {
+        // SE lo user_id del post è diverso dall'id dell'utente loggato...
+        if ($post->user_id !== Auth::id()) {
+
+            // ...lancio la pagina 403 (errore di permessi)
+            abort(403);
+        }
+
         // valido i dati che arrivano dal form dell'edit
         $request->validate([
             // passo al metodo validate() un array associativo in cui la chiave sarà il dato che devo controllare e come valore le caratteristiche che quel dato deve avere per poter "passare" la validazione (vedi doc: validation)
@@ -179,6 +203,9 @@ class PostController extends Controller
         // devo settare la checkbox in modo che restituisca un valore booleano (di default la checkbox restituisce "on" se è checkata e lo devo trasformare in "true")
         // il metodo isset() restituisce true o false. In questo caso "se esiste" restituisce true, altrimenti false
         $post->published = isset($data['published']);
+
+        // associo lo user al post attraverso il suo id
+        $post->user_id = Auth::id();
 
         // salvo le modifiche al post a db
         $post->save();
@@ -207,6 +234,13 @@ class PostController extends Controller
     // passo il model e il singolo $post come argomento del metodo update (dependancy injection)
     public function destroy(Post $post)
     {
+        // SE lo user_id del post è diverso dall'id dell'utente loggato...
+        if ($post->user_id !== Auth::id()) {
+
+            // ...lancio la pagina 403 (errore di permessi)
+            abort(403);
+        }
+
         // cancello il post selezionato
         $post->delete();
 
