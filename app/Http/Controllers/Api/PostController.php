@@ -13,9 +13,10 @@ class PostController extends Controller
     public function index() {
 
         // salvo in $posts QUEI post che hanno un valore true nella colonna 'published' (i post pubblicati)
-        $posts = Post::where('published', true)->get();
+        // il metodo with() permette di passare (durante la query di filtraggio) anche gli oggetti (e tutte le loro informazioni) associati appartenenti ad altre tabelle legate a questa da una relazione
+        $posts = Post::where('published', true)->with(['category', 'tags', 'user'])->get();
 
-        // restituisco tutti i post in formato json
+        // restituisco i post filtrati in formato json
         return response()->json($posts);
     }
 }

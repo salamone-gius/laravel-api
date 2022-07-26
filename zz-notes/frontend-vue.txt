@@ -33,4 +33,4 @@
 2. creo un controller con namespace Api dove inserirò i metodi per la gestione dei dati:
     php artisan make:controller Api/NomeTabellaSingolareController
 
-3. in routes > api.php inserisco tutte le rotte che servono ad utilizzare i metodi del controller per prendere dati dal db ed inviarli al componente attraverso una chiamata axios nel componente stesso. Queste rotte non restituiscono una view (come le pagine blade in web.php), ma devono restituire un json per poter essere 'letti'
+3. in routes > api.php inserisco tutte le rotte che servono ad utilizzare i metodi dei controller per prendere dati dal db ed inviarli al componente attraverso una chiamata axios nel componente stesso. Queste rotte non restituiscono una view (come le pagine blade in web.php), ma devono restituire un json per poter essere 'letti'
