@@ -12,8 +12,8 @@ class PostController extends Controller
 {
     public function index() {
 
-        // salvo in $posts TUTTI i post (all()) attraverso una query
-        $posts = Post::all();
+        // salvo in $posts QUEI post che hanno un valore true nella colonna 'published' (i post pubblicati)
+        $posts = Post::where('published', true)->get();
 
         // restituisco tutti i post in formato json
         return response()->json($posts);
