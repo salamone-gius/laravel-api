@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+// importo la Facades che mi fornisce dei metodi di supporto relativi all'utente autenticato
+use Illuminate\Support\Facades\Auth;
+
 // importo la classe helper (prima dei modelli) che ha molti metodi per le stringhe che possono tornare utili, tipo per la generazione dello slug (store())
 use Illuminate\Support\Str;
 
@@ -27,8 +30,11 @@ class PostController extends Controller
      */
     public function index()
     {
-        // passo tutti i post alla variabile $posts
-        $posts = Post::all();
+        // salvo in $user l'utente loggato in questo momento
+        $user = Auth::user();
+
+        // usando il metodo 'posts' definito nel PostController come attributo, prendo tutti i post associati a quell'utente
+        $posts = $user->posts;
 
         //restituisce la view con la lettura di tutti i post
         return view('admin.posts.index', compact('posts'));

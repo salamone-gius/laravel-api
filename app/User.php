@@ -36,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // creo un metodo pubblico che si chiama come la tabella dipendente
+    public function posts() {
+
+        // traduzione: restituisci $questoModel(un singolo utente)->ha molti('il Model legato') (Post)
+        return $this->hasMany('App\Post');
+    }
+    
 }

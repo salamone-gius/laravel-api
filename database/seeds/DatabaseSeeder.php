@@ -18,6 +18,9 @@ class DatabaseSeeder extends Seeder
 
                 // aggiungo il seeder appena creato
                 TagsTableSeeder::class,
+
+                // aggiungo il seeder appena creato
+                PostUserSeeder::class,
             ]
         );
     }

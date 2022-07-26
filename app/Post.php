@@ -8,7 +8,7 @@ class Post extends Model
 {
     // imposto le condizioni per il mass assignment (protezione dei campi)
     // passando 'tags' all'interno, escludo dal mass assignment quella colonna
-    protected $guarded = ['tags'];
+    protected $guarded = ['tags', 'user_id'];
 
     // creo un metodo pubblico che si chiama come la tabella principale (al singolare in caso di relazione uno a molti)
     public function category() {
@@ -23,4 +23,12 @@ class Post extends Model
         // traduzione: restituisci $questoModel(un singolo post)->appartiene (è legato) a('il Model legato') (più tag)
         return $this->belongsToMany('App\Tag');
     }
+
+    // creo un metodo pubblico che si chiama come la tabella principale (al singolare in caso di relazione uno a molti)
+    public function user() {
+
+        // traduzione: restituisci $questoModel(un singolo post)->appartiene a('il Model legato') (un singolo utente)
+        return $this->belongsTo('App\User');
+    }
+
 }
