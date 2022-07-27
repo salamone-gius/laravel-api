@@ -63,6 +63,12 @@
 
     - inserisco i componenti nel BaseMain (importo, registro, utilizzo);
 
+    - in resources > js > components creo una cartella 'commons'; 
+
+    - in resources > js > components > commons creo i componenti più piccoli che saranno riutilizzati in altri componenti (BaseCard, ecc...);
+
+    - inserisco i componenti nei relativi componenti (importo, registro, utilizzo);
+
     - in resources > sass creo una cartella 'guest' dove inserirò il file front.scss;
 
     - in resources > sass > guest creo una cartella 'partials' che conterrà i file organizzati settorialmente (_variables, _typography, ecc...);

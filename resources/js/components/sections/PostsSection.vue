@@ -3,10 +3,10 @@
         <div class="container d-flex flex-column justify-content-center align-items-center">
             <h2>All posts</h2>
             <div>
-                <ul>
+                <ul class="row">
                     <!-- ciclo e stampo con Vue -->
-                    <li v-for="post in posts" :key="post.slug">
-                        {{post.title}}
+                    <li class="col-4" v-for="post in posts" :key="post.slug">
+                        <BaseCard/>
                     </li>
                 </ul>
             </div>
@@ -15,8 +15,17 @@
 </template>
 
 <script>
+
+// 'importo' i componenti
+import BaseCard from '../commons/BaseCard.vue';
+
 export default {
     name: 'PostsSection',
+
+    // 'registro' i componenti importati
+    components: {
+        BaseCard,
+    },
 
     // preparo l'ambiente per i dati che riceverò dalla chiamata axios
     data() {
@@ -51,5 +60,14 @@ export default {
 .post-section {
     background-color: var(--bg-section-light);
     padding: var(--section-padding);
+
+    h2 {
+        margin-bottom: 2rem;
+    }
+
+    li {
+        list-style: none;
+        margin-bottom: 1.8rem;
+    }
 }
 </style>

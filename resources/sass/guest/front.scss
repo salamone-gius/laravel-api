@@ -1,8 +1,12 @@
-// importo solo la griglia di bootstrap
-@import '~bootstrap/scss/bootstrap-grid';
-
 // importo il file _variables
 @import './partials/variables';
 
 // importo il file _typography
 @import './partials/typography';
+
+// importo il file _reset
+@import './partials/reset';
+
+// importo solo la griglia di bootstrap
+@import '~bootstrap/scss/bootstrap-grid';
+
