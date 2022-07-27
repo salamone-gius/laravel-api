@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <div class="container footer">
+        <div class="footer container">
             Made with love
         </div>
     </footer>
@@ -12,6 +12,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.footer {
+    padding: var(--footer-padding);
+}
 </style>

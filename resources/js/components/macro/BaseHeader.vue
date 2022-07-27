@@ -1,6 +1,6 @@
 <template>
     <header>
-        <div class="container">
+        <div class="header container">
             <div class="row">
                 <div class="col logo">
                     <h1>Boolpress</h1>
@@ -17,6 +17,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.header {
+    padding: var(--header-padding);
+}
 </style>

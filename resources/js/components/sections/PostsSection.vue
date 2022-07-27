@@ -49,7 +49,7 @@ export default {
 
 <style lang="scss" scoped>
 .post-section {
-    background-color: lightgray;
-    padding: 2rem;
+    background-color: var(--bg-section-light);
+    padding: var(--section-padding);
 }
 </style>
