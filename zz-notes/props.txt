@@ -1,0 +1,2 @@
+// ---------- PROPS COMPONENTI VUE ---------- \\
+Uso le props per passare informazioni in maniera dinamica da un componente all'altro

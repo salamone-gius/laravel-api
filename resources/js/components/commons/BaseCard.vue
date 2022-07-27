@@ -1,8 +1,10 @@
 <template>
     <div class="base-card">
-        <h3>Titolo del post</h3>
+
+        <!-- utilizzo le props definite -->
+        <h3>{{title}}</h3>
         <p class="card-content">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, deserunt ipsum. Maiores dolor reprehenderit aut ipsum recusandae sed veritatis eaque? Commodi, quae cupiditate? Ducimus omnis quae officiis impedit quas inventore.
+            {{content}}
         </p>
         <a href="#">Leggi di più</a>
     </div>
@@ -11,6 +13,17 @@
 <script>
 export default {
     name: 'BaseCard',
+
+    // definisco le props che arrivano dal componente padre
+    props: {
+        title: {
+            type: String
+        },
+
+        content: {
+            type: String
+        },
+    },
 }
 </script>
 
@@ -20,6 +33,7 @@ export default {
     padding: 1.5rem;
     border-radius: 1.25rem;
     box-shadow: 0 0 5px 2px gray;
+    min-height: 21rem;
 
     p {
         margin: 1rem 0;

@@ -6,7 +6,9 @@
                 <ul class="row">
                     <!-- ciclo e stampo con Vue -->
                     <li class="col-4" v-for="post in posts" :key="post.slug">
-                        <BaseCard/>
+
+                        <!-- passo le informazioni da un componente padre ad un componente figlio attraverso le props -->
+                        <BaseCard :title="post.title" :content="post.content"/>
                     </li>
                 </ul>
             </div>

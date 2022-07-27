@@ -1909,7 +1909,16 @@ module.exports = {
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'BaseCard'
+  name: 'BaseCard',
+  // definisco le props che arrivano dal componente padre
+  props: {
+    title: {
+      type: String
+    },
+    content: {
+      type: String
+    }
+  }
 });
 
 /***/ }),
@@ -2051,23 +2060,18 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _vm._m(0);
-};
-
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
   return _c("div", {
     staticClass: "base-card"
-  }, [_c("h3", [_vm._v("Titolo del post")]), _vm._v(" "), _c("p", {
+  }, [_c("h3", [_vm._v(_vm._s(_vm.title))]), _vm._v(" "), _c("p", {
     staticClass: "card-content"
-  }, [_vm._v("\n        Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum, deserunt ipsum. Maiores dolor reprehenderit aut ipsum recusandae sed veritatis eaque? Commodi, quae cupiditate? Ducimus omnis quae officiis impedit quas inventore.\n    ")]), _vm._v(" "), _c("a", {
+  }, [_vm._v("\n        " + _vm._s(_vm.content) + "\n    ")]), _vm._v(" "), _c("a", {
     attrs: {
       href: "#"
     }
   }, [_vm._v("Leggi di più")])]);
-}];
+};
+
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -2190,7 +2194,12 @@ var render = function render() {
     return _c("li", {
       key: post.slug,
       staticClass: "col-4"
-    }, [_c("BaseCard")], 1);
+    }, [_c("BaseCard", {
+      attrs: {
+        title: post.title,
+        content: post.content
+      }
+    })], 1);
   }), 0)])])]);
 };
 
@@ -2236,7 +2245,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../node_modules/css-
 
 
 // module
-exports.push([module.i, ".base-card[data-v-513be633] {\n  background-color: white;\n  padding: 1.5rem;\n  border-radius: 1.25rem;\n  box-shadow: 0 0 5px 2px gray;\n}\n.base-card p[data-v-513be633] {\n  margin: 1rem 0;\n}", ""]);
+exports.push([module.i, ".base-card[data-v-513be633] {\n  background-color: white;\n  padding: 1.5rem;\n  border-radius: 1.25rem;\n  box-shadow: 0 0 5px 2px gray;\n  min-height: 21rem;\n}\n.base-card p[data-v-513be633] {\n  margin: 1rem 0;\n}", ""]);
 
 // exports
 
