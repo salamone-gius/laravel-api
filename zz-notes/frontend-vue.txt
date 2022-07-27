@@ -49,4 +49,18 @@
 
         - stampo in pagina i dati arrivati dal server attraverso Vue;
 
+5. organizzo e preparo lo scaffolding dei componenti Vue che renderizzeranno le pagine a frontoffice:
+
+    - in resources > js > components creo una cartella 'macro'; 
+
+    - in resources > js > components > macro creo i componenti principali (BaseHeader, BaseMain, BaseFooter);
+
+    - inserisco i componenti in App.vue (importo, registro, utilizzo);
+
+    - in resources > js > components creo una cartella 'sections';
+
+    - in resources > js > components > sections creo i componenti che saranno le sezioni del main;
+
+    - inserisco i componenti nel BaseMain (importo, registro, utilizzo);
+
 
